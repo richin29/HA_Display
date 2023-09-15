@@ -19,8 +19,8 @@
 /** @brief Specify if the display orientation. */
 #define UI_DISPLAY_ORIENTATION              UI_DISPLAY_ORIENTATION_PORTRAIT
 /** @brief Specify the height of the notification panel. */
-#define UI_NOTIFICATION_HEIGHT              60u
+#define UI_NOTIFICATION_HEIGHT              40u
 /** @brief Specify the duration to refresh the notification panel in milliseconds. */
-#define UI_NOTIFICATION_REFRESH_PERIOD_MS   20u
+#define UI_NOTIFICATION_REFRESH_PERIOD_MS   25u
 
 #endif // UI_CONFIG_H

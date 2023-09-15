@@ -11,7 +11,7 @@
 #include "ui_mng.h"
 #include "ui_config.h"
 #include "wifi_mng.h"
-#include "images/wifi_small.h"
+#include "images/wifi_40x40.h"
 
 // DEFINES
 
@@ -74,25 +74,25 @@ static void ui_mng_refresh_notification(
 )
 {
     // Update the notification panel every refresh period only
-    notification_sprite.fillRect(0, 0, 60, 60, TFT_RED);
+    notification_sprite.fillRect(0, 0, 40, 40, TFT_RED);
     ui_mng_refresh_wifi(current_time);
-    notification_sprite.pushToSprite(&background_sprite, 0u, 0u, TFT_BLACK);
+    notification_sprite.pushToSprite(&background_sprite, 0u, 0u);
 }
 
 static void ui_mng_refresh_wifi(
     uint64_t current_time
 )
 {
-    notification_sprite.pushImage(180, 0, WIFI_SMALL_FRAME_WIDTH, WIFI_SMALL_FRAME_HEIGHT, &wifi_small[wifi_frame_index][0]);
+    notification_sprite.pushImage(200, 0, WIFI_40X40_FRAME_WIDTH, WIFI_40X40_FRAME_HEIGHT, &wifi_40x40[wifi_frame_index][0]);
     // Display the frame according to WiFi connetion status
     if (wifi_mng_getstate() == WIFI_MNG_STATE_CONNECTED) {
         // Since WiFi is connected use the last frame
-        wifi_frame_index = WIFI_SMALL_NUM_FRAMES - 1u;
+        wifi_frame_index = WIFI_40X40_NUM_FRAMES - 1u;
     }
     else {
         if (current_time >= (ui_mng_notif_time_ref + UI_NOTIFICATION_REFRESH_PERIOD_MS)) {
             // update the gif frame index
-            wifi_frame_index = (wifi_frame_index + 1u) < WIFI_SMALL_NUM_FRAMES ? wifi_frame_index + 1u : 0u;
+            wifi_frame_index = (wifi_frame_index + 1u) < WIFI_40X40_NUM_FRAMES ? wifi_frame_index + 1u : 0u;
             // Update the reference time
             ui_mng_notif_time_ref = current_time;
         }

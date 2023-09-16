@@ -9,6 +9,8 @@
 
 // INCLUDES
 
+#include <WiFi.h> // For MQTT
+
 // DEFINES
 
 // TYPES

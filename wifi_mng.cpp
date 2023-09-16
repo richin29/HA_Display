@@ -9,7 +9,6 @@
 #include "wifi_mng.h"
 #include "wifi_config.h"
 #include <WiFi.h>
-#include "secrets.h"
 
 // DEFINES
 

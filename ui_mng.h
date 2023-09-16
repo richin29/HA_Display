@@ -23,9 +23,17 @@
 
 // FUNCTIONS PROTOTYPES
 
+/**
+ * @brief Function to initialise the user interface.
+ */
 void ui_mng_init(void);
 
+/**
+ * @brief Function to be called periodically to manage the user interface.
+ */
 void ui_mng_loop(void);
+
+void ha_mqtt_cbk(char *topic, uint8_t *payload, uint32_t length);
 
 // FUNCTIONS
 
